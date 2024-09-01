@@ -1,0 +1,78 @@
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #15202b;
+    color: white;
+  }
+  
+  .auth-box {
+    background-color: #1c2733;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 400px;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  label {
+    display: block;
+    text-align: left;
+    margin-bottom: 0.5rem;
+    font-size: 14px;
+    color: #8899a6;
+  }
+  
+  input {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 14px;
+    border: 1px solid #38444d;
+    border-radius: 4px;
+    background-color: #15202b;
+    color: white;
+    margin-bottom: 1rem;
+  }
+  
+  button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #1da1f2;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0a85d4;
+  }
+  
+  .forgot-password {
+    margin-top: 1rem;
+    font-size: 14px;
+  }
+  
+  .signup-link {
+    margin-top: 2rem;
+  }
+  
+  .signup-link a {
+    color: #1da1f2;
+    text-decoration: none;
+  }
+  
+  .signup-link a:hover {
+    text-decoration: underline;
+  }

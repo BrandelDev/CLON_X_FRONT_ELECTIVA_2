@@ -1,0 +1,19 @@
+body {
+    background-color: #15202b;
+  }
+  
+  .card {
+    border-radius: 10px;
+  }
+  
+  h1 {
+    color: #1da1f2;
+  }
+  
+  a {
+    color: #1da1f2;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
