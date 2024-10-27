@@ -7,3 +7,5 @@ export interface UserModel {
     bio: string;
     birthdate: Date;
 }
+
+export interface LoginModel extends Pick<UserModel, 'email' | 'password'> {}
