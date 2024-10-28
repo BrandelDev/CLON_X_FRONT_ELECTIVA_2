@@ -1,0 +1,102 @@
+/* Navbar principal */
+.navbar {
+    background-color: #121212; /* Fondo oscuro */
+    border-bottom: 1px solid #333333; /* Línea de separación */
+    padding: 0.75rem 1rem;
+  }
+  
+  /* Logo y título del navbar */
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .navbar-brand img {
+    margin-right: 8px; /* Espacio entre el logo y el nombre */
+  }
+  
+  /* Links de navegación */
+  .navbar-nav .nav-link {
+    color: #b3b3b3;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+    font-weight: 500;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #ffffff; /* Cambia de color en hover */
+  }
+  
+  .navbar-nav .nav-link.active {
+    color: #ffffff;
+    border-bottom: 2px solid #1DA1F2; /* Indicación del enlace activo */
+    padding-bottom: 8px;
+  }
+  
+  /* Barra de búsqueda */
+  .form-control {
+    background-color: #1a1a1a;
+    border: 1px solid #333333;
+    color: #ffffff;
+  }
+  
+  .form-control::placeholder {
+    color: #b3b3b3;
+  }
+  
+  .form-control:focus {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border-color: #1DA1F2;
+    box-shadow: none; /* Elimina el brillo por defecto */
+  }
+  
+  /* Botón de búsqueda */
+  .btn-outline-light {
+    color: #ffffff;
+    border-color: #333333;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-outline-light:hover {
+    background-color: #1DA1F2;
+    border-color: #1DA1F2;
+  }
+  
+  /* Dropdown de usuario */
+  .dropdown-toggle {
+    color: #b3b3b3;
+  }
+  
+  .dropdown-toggle img {
+    border-radius: 50%;
+    border: 2px solid #333333;
+    transition: border-color 0.3s ease;
+  }
+  
+  .dropdown-toggle:hover img {
+    border-color: #1DA1F2; /* Color del borde al pasar el cursor sobre el avatar */
+  }
+  
+  .dropdown-menu {
+    background-color: #1a1a1a;
+    border: none;
+  }
+  
+  .dropdown-menu .dropdown-item {
+    color: #b3b3b3;
+    transition: color 0.3s ease;
+  }
+  
+  .dropdown-menu .dropdown-item:hover {
+    color: #ffffff;
+    background-color: #333333;
+  }
+  
+  .dropdown-divider {
+    border-color: #333333;
+  }

@@ -1,0 +1,96 @@
+/* Contenedor general del feed */
+.feed-container {
+    max-width: auto !important;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #121212;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Componente de creación de tweet */
+  .create-tweet {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #333333;
+  }
+  
+  .create-tweet .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .create-tweet .tweet-input {
+    flex: 1;
+    padding: 10px;
+    background-color: #1a1a1a;
+    border: 1px solid #333333;
+    border-radius: 20px;
+    color: #ffffff;
+  }
+  
+  /* Tarjeta de tweet */
+  .tweet-card {
+    padding: 15px;
+    border-bottom: 1px solid #333333;
+  }
+  
+  .tweet-header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .tweet-header .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .tweet-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .user-name {
+    font-weight: bold;
+  }
+  
+  .username, .tweet-time {
+    color: #b3b3b3;
+    font-size: 0.85rem;
+  }
+  
+  /* Contenido del tweet */
+  .tweet-content {
+    margin-top: 10px;
+    font-size: 1rem;
+  }
+  
+  /* Acciones del tweet */
+  .tweet-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .action-btn {
+    background: none;
+    border: none;
+    color: #b3b3b3;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .action-btn i {
+    margin-right: 5px;
+  }
+  
+  .action-btn:hover {
+    color: #1DA1F2; /* Azul para efecto hover */
+  }

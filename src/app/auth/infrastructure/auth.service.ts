@@ -23,7 +23,7 @@ export class AuthService {
   }
 
   login(user: any): Observable<any> {
-    return this.http.post<AuthResponse>(this.apiUrl + 'api/login', user).pipe(
+    return this.http.post<AuthResponse>(this.apiUrl + '/login', user).pipe(
       tap(response => {
         if (response.token) {
           if (response.token) {
