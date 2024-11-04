@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { enviroment } from '../../../environments/enviroment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Tweet } from '../domain/TweetModel';
+import { Tweet, TweetDTO } from '../domain/TweetModel';
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +15,11 @@ export class TweetService {
 
 
 
-  public getTweets(): Observable<Tweet> {
+  public getTweets(): Observable<Tweet[]> {
     return this.http.get<any>(`${this.apiUrl}tweet/get`);
   }
 
-  public createTweet(tweet: Tweet): Observable<Tweet> {
+  public createTweet(tweet: TweetDTO): Observable<Tweet> {
     return this.http.post<any>(`${this.apiUrl}tweet/create`, tweet);
   }
 
@@ -30,8 +30,8 @@ export class TweetService {
     return this.http.delete<any>(`${this.apiUrl}tweet/delete/${tweetId}`);
   }
 
-  public likeTweet(tweet: string): Observable<Tweet> {
-    return this.http.post<Tweet>(`${this.apiUrl}tweet/like/${tweet}`, tweet);
+  public likeTweet(userId: string): Observable<Tweet> {
+    return this.http.post<Tweet>(`${this.apiUrl}tweet/like/${userId}`, userId);
    }
 
     

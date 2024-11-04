@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UserModel } from '../../user/domain/UserModel';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, of, tap } from 'rxjs';
 import { enviroment } from '../../../environments/enviroment';
 import { UserRegister } from '../domain/UserRegister';
-import { AuthResponse } from '../domain/Auth';
+import { AuthResponse, User } from '../domain/Auth';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,7 @@ export class AuthService {
 
   private tokenKey = 'authToken';
   private authStatus = new BehaviorSubject<boolean>(this.isAuthenticated());
+  public user!: User
 
   constructor(private http: HttpClient) { }
 
@@ -22,17 +23,28 @@ export class AuthService {
     return this.http.post(this.apiUrl + 'signup', user)
   }
 
-  login(user: any): Observable<any> {
-    return this.http.post<AuthResponse>(this.apiUrl + '/login', user).pipe(
-      tap(response => {
-        if (response.token) {
+  login(user?: any):Observable<AuthResponse | null> {
+    if (this.isAuthenticated()) {
+      const userData = localStorage.getItem('userData');
+      if (userData) {
+        this.user = JSON.parse(userData);
+      }
+      return of(null);
+    }
+      return this.http.post<AuthResponse>(this.apiUrl + '/login', user).pipe(
+        tap(response => {
           if (response.token) {
-            this.storeToken(response.token);
-            this.authStatus.next(true);
+            if (response.token) {
+              localStorage.setItem('userData', JSON.stringify(response.user))
+              console.log(response.user)
+              this.user = response.user;
+              this.storeToken(response.token);
+              this.authStatus.next(true);
+            }
           }
-        }
-      })
-    );
+        })
+      );
+    
   }
 
   storeToken(token: string): void {
@@ -49,11 +61,12 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem(this.tokenKey);
+    localStorage.removeItem('userData');
     this.authStatus.next(false)
   }
 
-  getAuthStatus(): Observable<boolean> { 
-    return this.authStatus.asObservable();  
+  getAuthStatus(): Observable<boolean> {
+    return this.authStatus.asObservable();
   }
 
 }

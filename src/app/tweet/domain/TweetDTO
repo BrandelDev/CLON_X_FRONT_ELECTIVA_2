@@ -1,0 +1,10 @@
+export interface MediaItem {
+  type: string;
+  url: string;
+}
+
+export interface TweetDTO {
+  content: string;
+  author: string; // El ID del usuario que crea el tweet
+  media: MediaItem[];
+}
