@@ -23,28 +23,33 @@ export class AuthService {
     return this.http.post(this.apiUrl + 'signup', user)
   }
 
-  login(user?: any):Observable<AuthResponse | null> {
+  login(user?: any): Observable<AuthResponse | null> {
+
+    return this.http.post<AuthResponse>(this.apiUrl + '/login', user).pipe(
+      tap(response => {
+        if (response.token) {
+          if (response.token) {
+            localStorage.setItem('userData', JSON.stringify(response.user))
+            console.log(response.user)
+            this.user = response.user;
+            this.storeToken(response.token);
+            this.authStatus.next(true);
+          }
+        }
+      })
+    );
+
+  }
+
+  getUser():User | undefined {
     if (this.isAuthenticated()) {
       const userData = localStorage.getItem('userData');
       if (userData) {
         this.user = JSON.parse(userData);
+        return this.user;
       }
-      return of(null);
     }
-      return this.http.post<AuthResponse>(this.apiUrl + '/login', user).pipe(
-        tap(response => {
-          if (response.token) {
-            if (response.token) {
-              localStorage.setItem('userData', JSON.stringify(response.user))
-              console.log(response.user)
-              this.user = response.user;
-              this.storeToken(response.token);
-              this.authStatus.next(true);
-            }
-          }
-        })
-      );
-    
+    return undefined;
   }
 
   storeToken(token: string): void {

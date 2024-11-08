@@ -1,0 +1,85 @@
+.profile-container {
+    background-color: #1a1a1a; /* Fondo oscuro */
+    color: #ffffff; /* Texto en blanco */
+    border-radius: 8px;
+    width: 100% !important;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Encabezado del perfil */
+  .profile-header {
+    background-color: #242424; /* Fondo ligeramente más oscuro */
+    border-bottom: 1px solid #333333;
+  }
+  
+  .profile-picture {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 2px solid #1d9bf0; /* Borde azul similar a X */
+  }
+  
+  .profile-username {
+    font-size: 1.8rem;
+    color: #ffffff;
+  }
+  
+  .profile-bio {
+    font-size: 0.9rem;
+    color: #b0b0b0; /* Texto en gris claro */
+  }
+  
+  .profile-edit-btn {
+    padding: 0.4rem 1rem;
+    background-color: #1d9bf0; /* Azul estilo 'X' */
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+  }
+  
+  .profile-edit-btn:hover {
+    background-color: #1a8cd8; /* Azul más oscuro en hover */
+  }
+  
+  /* Estadísticas del perfil */
+  .profile-stats {
+    border-bottom: 1px solid #333333;
+  }
+  
+  .stat-number {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #ffffff;
+  }
+  
+  .stat-label {
+    font-size: 0.85rem;
+    color: #b0b0b0; /* Gris claro */
+  }
+  
+  /* Detalles del perfil */
+  .profile-details h2 {
+    color: #ffffff;
+  }
+  
+  .profile-details ul li {
+    margin-bottom: 0.5rem;
+    color: #b0b0b0;
+  }
+  
+  /* Publicaciones */
+  .profile-content h2 {
+    color: #ffffff;
+  }
+  
+  .post img {
+    object-fit: cover;
+    height: 150px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .post img:hover {
+    transform: scale(1.05); /* Zoom suave en hover */
+  }

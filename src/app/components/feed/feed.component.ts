@@ -18,7 +18,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 export class FeedComponent {
 
 
-  user!: User;
+  user!: User | undefined;
   allTweets: Tweet[] = []
   tweetForm: FormGroup;
 
@@ -35,8 +35,7 @@ export class FeedComponent {
         })
       ])
     });
-    this.authService.login().subscribe();
-    this.user = this.authService.user;
+    this.user = this.authService.getUser();
 
     console.log(this.user);
 
@@ -68,24 +67,22 @@ export class FeedComponent {
   }
 
   createTweet() {
-    const dataData: TweetDTO = {
-      content: this.tweetForm.get('content')?.value,
-      author: this.user.id,
-      media: this.tweetForm.get('media')?.value.map((media: { type: any; url: any; }) => ({ type: media.type, url: media.url }))
-    }
-    this.TweetService.createTweet(dataData).subscribe({
-      next: () => {
-        this.getTweets();
-        this.tweetForm.reset();
-      },
-      error: response => {
-        alert('Error al crear tweet, coño');
+    if (this.user) {
+      const dataData: TweetDTO = {
+        content: this.tweetForm.get('content')?.value,
+        author: this.user.id,
+        media: this.tweetForm.get('media')?.value.map((media: { type: any; url: any; }) => ({ type: media.type, url: media.url }))
       }
-    });
+      this.TweetService.createTweet(dataData).subscribe({
+        next: () => {
+          this.getTweets();
+          this.tweetForm.reset();
+        },
+        error: response => {
+          alert('Error al crear tweet, coño');
+        }
+      });
+    }
+  
   }
-
-
-
-
-
 }

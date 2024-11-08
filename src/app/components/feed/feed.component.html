@@ -2,7 +2,7 @@
   <!-- Componente de creación de tweet -->
   <form [formGroup]="this.tweetForm">
     <div class="create-tweet ">
-      <img [src]="user.avatarURL" alt="User Avatar" class="avatar">
+      <img [src]="user?.avatarURL" alt="User Avatar" class="avatar">
       <input type="text" formControlName="content" placeholder="What's happening?" class="tweet-input">
       <button class="btn btn-primary ms-3" (click)="createTweet()">Tweet</button>
     </div>

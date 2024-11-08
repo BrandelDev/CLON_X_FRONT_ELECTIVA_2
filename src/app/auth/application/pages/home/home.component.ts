@@ -33,7 +33,7 @@ export class HomeComponent {
       const loginData = this.authForm.value
       this.authService.login(loginData).subscribe({
         next: () => {
-          this.router.navigate(['main'])
+          this.router.navigate(['main/feed'])
         },
         error: (err) => {
           alert(err.message)
