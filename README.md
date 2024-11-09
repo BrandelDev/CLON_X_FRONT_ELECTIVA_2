@@ -1,4 +1,19 @@
-# CLONXFRONT
+# CLONX FRONT END
+
+## Información del Proyecto
+
+**Materia:** Electiva 2
+
+**Nombre completo del proyecto:** CLON X FRONT END
+
+**Integrantes:**
+- Victor Daniel Hermoso Lopera
+- Brandel Daniel Otero Arango
+- Esteban Jaramillo Vasquez
+
+## Descripción
+
+CLON X FRONT END es una implementación del front end para un clon de la plataforma X (anteriormente conocida como Twitter). Este proyecto se desarrolla como parte de la materia Electiva 2 y tiene como objetivo replicar las funcionalidades principales de la red social X, incluyendo la creación de usuarios, publicación de tweets, interacciones entre usuarios, entre otras características que se sirven mediante el front con Angular.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.9.
 
