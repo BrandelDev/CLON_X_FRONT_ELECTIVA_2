@@ -9,7 +9,7 @@
                 <img [src]="user.avatarURL" alt="Perfil" class="followed-profile-picture" />
 
                 <div class="followed-info">
-                    <span class="followed-username">{{ user.username }}</span>
+                    <a class="followed-username" [routerLink]="['/user-tweets', user.userId]">{{ user.username }}</a>
                 </div>
                 <button class="unfollow-btn">Siguiendo</button>
             </li>

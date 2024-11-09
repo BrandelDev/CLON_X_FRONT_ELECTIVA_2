@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { UserModel } from '../../user/domain/UserModel';
 import { BehaviorSubject, Observable, of, tap } from 'rxjs';
 import { enviroment } from '../../../environments/enviroment';
 import { UserRegister } from '../domain/UserRegister';
 import { AuthResponse, User } from '../domain/Auth';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class AuthService {
   private tokenKey = 'authToken';
   private authStatus = new BehaviorSubject<boolean>(this.isAuthenticated());
   public user!: User
+  router = inject(Router)
 
   constructor(private http: HttpClient) { }
 
@@ -67,6 +69,7 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem(this.tokenKey);
     localStorage.removeItem('userData');
+    this.router.navigate(['/login'])
     this.authStatus.next(false)
   }
 
