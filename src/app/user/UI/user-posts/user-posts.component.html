@@ -1,0 +1,26 @@
+<div class="profile-container">
+    <!-- Foto de perfil y nombre de usuario -->
+    <div class="profile-header">
+        <img class="profile-avatar" [src]="this.tweets[0].author.avatarURL"
+            alt="Foto de perfil de {{ this.tweets[0].author.username }}">
+        <h2 class="username">{{ this.tweets[0].author.username }}</h2>
+    </div>
+
+    <!-- Lista de tweets -->
+    <div class="tweets-container">
+        @for(tweetByUser of tweets; track tweetByUser._id){
+        <div class="tweet">
+            <p class="tweet-content">{{ tweetByUser.content }}</p>
+            <div class="tweet-footer">
+                <span class="tweet-time">{{ tweetByUser.createdAt | date:'short' }}</span>
+                <button class="action-btn" (click)="likeTweet(tweetByUser._id)">
+                    <mat-icon color="red">favorite
+                    </mat-icon>
+                    <span>{{tweetByUser.likes.length}}</span>
+                  </button>
+            </div>
+
+        </div>
+        }
+    </div>
+</div>

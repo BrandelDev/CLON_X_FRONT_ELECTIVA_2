@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../infrastructure/auth.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
@@ -16,6 +16,8 @@ import { catchError, throwError } from 'rxjs';
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
+
+  private router = inject(Router)
 
   public registerUserForm: FormGroup;
 
@@ -43,7 +45,9 @@ export class RegisterComponent {
         return throwError(() => error)
       })
     ).subscribe((resp: any) => { 
-      console.log(resp)
+      alert('Your user was successfully registered')
+      this.router.navigate(['/login'])
+      
     });
   }
 

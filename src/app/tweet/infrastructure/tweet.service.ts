@@ -34,6 +34,10 @@ export class TweetService {
     return this.http.post<Tweet>(`${this.apiUrl}tweet/like/${userId}`, userId);
    }
 
+   getTweetsByUser(userId?: string): Observable<Tweet[]> {
+    return this.http.get<Tweet[]>(`${this.apiUrl}/tweet/tweetsByUser/${userId}`);
+  }
+
     
 
 

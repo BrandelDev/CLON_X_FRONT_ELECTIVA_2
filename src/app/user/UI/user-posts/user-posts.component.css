@@ -1,0 +1,74 @@
+
+.profile-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+  }
+  
+  .profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  
+  .username {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .tweets-container {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+  
+  .tweet {
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .tweet:last-child {
+    border-bottom: none;
+  }
+  
+  .tweet-content {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .tweet-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .tweet-time {
+    font-size: 12px;
+    color: #888;
+  }
+  
+  .like-button {
+    background-color: #1DA1F2;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .like-button:hover {
+    background-color: #0d8bcd;
+  }

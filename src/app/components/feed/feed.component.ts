@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TweetService } from '../../tweet/infrastructure/tweet.service';
 import { Tweet, TweetDTO } from '../../tweet/domain/TweetModel';
 import { DatePipe } from '@angular/common';
@@ -6,6 +6,8 @@ import { AuthService } from '../../auth/infrastructure/auth.service';
 import { MatIconModule } from '@angular/material/icon';
 import { User } from '../../auth/domain/Auth';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { UserService } from '../../user/infrastructure/user.service';
+import { UserFollow } from '../../user/domain/UserFollow';
 
 
 @Component({
@@ -17,6 +19,8 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 })
 export class FeedComponent {
 
+
+  userService = inject(UserService);
 
   user!: User | undefined;
   allTweets: Tweet[] = []
@@ -36,7 +40,7 @@ export class FeedComponent {
       ])
     });
     this.user = this.authService.getUser();
-
+    this.user?.id
     console.log(this.user);
 
     this.getTweets();
@@ -83,6 +87,22 @@ export class FeedComponent {
         }
       });
     }
-  
+  }
+
+  followUser(Tweet: Tweet) {
+    const followData:UserFollow = {
+      userId:Tweet.author.userId,
+      followerId: this.authService.getUser()?.id,
+    }
+    
+    this.userService.followUser(followData).subscribe({
+      next: () => {
+        alert('Se siguió al usuario');
+      },
+      error: response => {
+        alert('Error al seguir al usuario, coño');
+      }
+    })
+
   }
 }

@@ -1,4 +1,4 @@
 export interface UserFollow {
-    userId:     string;
-    followerId: string;
+    userId?:     string;
+    followerId?: string;
 }

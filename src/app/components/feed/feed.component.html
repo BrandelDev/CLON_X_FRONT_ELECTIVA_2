@@ -11,12 +11,17 @@
   @for(tweet of allTweets; track tweet.author){
   <div class="tweet-card animate__animated animate__bounce ">
     <div class="tweet-header ">
-      <img [src]='tweet.author.avatarURL' alt="User Avatar" class="avatar">
+      
+        <img [src]='tweet.author.avatarURL' alt="User Avatar" class="avatar">
+      
       <div class="tweet-info">
         <span class="user-name">{{tweet.author.username}}</span>
         <span class="username">{{tweet.author.username}}</span>
         <span class="tweet-time">{{tweet.createdAt | date }}</span>
       </div>
+      @if(tweet.author.userId!== this.user?.id ){
+        <button class="btn btn-primary ms-3" (click)="followUser(tweet)">Follow</button>
+      }
     </div>
     <div class="tweet-content">
       <p>{{tweet.content}}</p>

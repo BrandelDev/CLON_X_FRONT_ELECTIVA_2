@@ -13,20 +13,20 @@ export class UserService {
   constructor(private http: HttpClient) {
   }
 
-  getCountFollowers(userId: string) {
-    return this.http.get(this.apiUrl + '/users/' + userId + '/followers/count');
+  getCountFollowers(userId?: string) {
+    return this.http.get(this.apiUrl  + userId + '/followers/count');
   }
 
-  getCountFollowing(userId: string) {
-    return this.http.get(this.apiUrl + '/users/' + userId + '/following/count');
+  getCountFollowing(userId?: string) {
+    return this.http.get(this.apiUrl  + userId + '/following/count');
   }
 
-  getFollowersList(userId: string) {
-    return this.http.get(this.apiUrl + '/users/' + userId + '/followers');
+  getFollowersList(userId?: string) {
+    return this.http.get(`${this.apiUrl}users/${userId}/followers`);
   }
 
-  getFollowingsList(userId: string) {
-    return this.http.get(this.apiUrl + '/users/' + userId + '/followings');
+  getFollowingsList(userId?: string) {
+    return this.http.get(`${this.apiUrl}users/${userId}/followings`);
   }
 
   removeFollower(data: UserFollow) {

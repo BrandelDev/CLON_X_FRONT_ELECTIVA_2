@@ -1,0 +1,40 @@
+<div class="d-flex pt-3">
+
+    <div class="followed-container">
+        <ul class="followed-list">
+            <h2 class="section-title">Seguidores</h2>
+            @if(followersList){
+            @for(user of followersList?.followers; track user.username){
+            <li class="followed-item">
+                <img [src]="user.avatarURL" alt="Perfil" class="followed-profile-picture" />
+
+                <div class="followed-info">
+                    <span class="followed-username">{{ user.username }}</span>
+                </div>
+                <button class="unfollow-btn">Siguiendo</button>
+            </li>
+            }
+            }
+        </ul>
+
+    </div>
+    <div class="followed-container">
+        <h2 class="section-title">Siguiendo</h2>
+
+        <ul class="followed-list">
+            @if(followersList){
+            @for(user of followingList?.followings; track user.username){
+            <li class="followed-item">
+                <img [src]="user.avatarURL" alt="Perfil" class="followed-profile-picture" />
+
+                <div class="followed-info">
+                    <a class="followed-username" [routerLink]="['/user-tweets', user.userId]">{{ user.username }}</a>
+                </div>
+
+                <button class="unfollow-btn">Siguiendo</button>
+            </li>
+            }}
+
+        </ul>
+    </div>
+</div>
